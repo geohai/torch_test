@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Using device: {device}")
 
-eurosat_path = "data"
+eurosat_path = "/local/ms-data/eurosat/ds/images/remote_sensing/otherDatasets/sentinel_2/tif"
 
 # Define class mapping
 CLASS_MAPPING = {
@@ -92,7 +92,7 @@ train_losses, val_losses = [], []
 train_accuracies, val_accuracies = [], []
 
 best_val_accuracy = 0.0
-best_model_path = "resnet50_eurosat_best.pth"
+best_model_path = "/local/moka9751/projects/torch_test/models/resnet50_eurosat_best.pth"
 
 for epoch in range(epochs):
     # Training phase
@@ -146,7 +146,7 @@ for epoch in range(epochs):
         print(f"Saved best model with Val Accuracy: {best_val_accuracy:.2f}%")
 
 # Save the final model
-final_model_path = "resnet50_eurosat_final.pth"
+final_model_path = "/local/moka9751/projects/torch_test/models/resnet50_eurosat_final.pth"
 torch.save(model.state_dict(), final_model_path)
 print(f"Final model saved to '{final_model_path}'.")
 
